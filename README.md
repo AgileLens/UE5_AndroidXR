@@ -31,7 +31,6 @@ Ensure you have the following installed:
 1. **Clone the Repo:**
    ```bash
    git clone [https://github.com/AgileLens/UE5_AndroidXR.git](https://github.com/AgileLens/UE5_AndroidXR.git)
-   Generate Files: Right-click AndroidXR.uproject and select Generate Visual Studio project files.
 
 2.  Open: Launch the project in Unreal Engine.
 3.  Package:
