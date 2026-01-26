@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+    <init>
+        <log text="[AndroidXROpenXR UPL] Init"/>
+        <setBool result="bCpuArchSupported" value="false"/>
+        <isArch arch="arm64-v8a">
+            <setBool result="bCpuArchSupported" value="true"/>
+        </isArch>
+        <setString result="AndroidXROpenXRRuntimeSettings" value="/Script/AndroidXROpenXRRuntimeSettings.AndroidXROpenXRRuntimeSettings"/>
+        <setBoolFromProperty result="bHandTrackingEnabled" ini="Engine" section="$S(AndroidXROpenXRRuntimeSettings)" property="bEnableHandTracking" default="false"/>
+        <setBoolFromProperty result="bEyeTrackingEnabled" ini="Engine" section="$S(AndroidXROpenXRRuntimeSettings)" property="bEnableEyeTracking" default="false"/>
+        <setBoolFromProperty result="bEyeTrackingFineEnabled" ini="Engine" section="$S(AndroidXROpenXRRuntimeSettings)" property="bEnableEyeTrackingFine" default="false"/>
+        <setBoolFromProperty result="bFaceTrackingEnabled" ini="Engine" section="$S(AndroidXROpenXRRuntimeSettings)" property="bEnableFacialTracking" default="false"/>
+    </init>
+
+    <androidManifestUpdates>
+        <if condition="bCpuArchSupported">
+            <true>
+                <addFeature android:name="android.hardware.xr.input.hand_tracking" android:required="false"/>
+
+                <setElement result="GoogleOpenXRLib" value="uses-native-library" />
+                <addAttribute tag="$GoogleOpenXRLib" name="android:name" value="libopenxr.google.so" />
+                <addAttribute tag="$GoogleOpenXRLib" name="android:required" value="false" />
+                <addElement tag="application" name="GoogleOpenXRLib" />
+
+                <log text="[AndroidXROpenXR UPL] Locating GameActivity element..."/>
+                <loopElements tag="activity">
+                    <setStringFromAttribute result="ActivityName" tag="$" name="android:name"/>
+
+                    <setBoolIsEqual result="bInGameActivity" arg1="$S(ActivityName)" arg2="com.epicgames.unreal.GameActivity"/>
+                    <if condition="bInGameActivity">
+                        <true>
+                            <log text="[AndroidXROpenXR UPL] GameActivity element found"/>
+                            <log text="[AndroidXROpenXR UPL] Locating intent-filter element..."/>
+
+                            <addElements tag="$">
+                                <property android:name="android.window.PROPERTY_XR_ACTIVITY_START_MODE" android:value="XR_ACTIVITY_START_MODE_FULL_SPACE_UNMANAGED" />
+                            </addElements>
+
+                            <setBool result="bIntentFilterFound" value="false"/>
+                            <loopElements tag="$">
+                                <setStringFromTag result="TagName" tag="$"/>
+                                
+                                <setBoolIsEqual result="bIntentFilterFound" arg1="$S(TagName)" arg2="intent-filter"/>
+                                <if condition="bIntentFilterFound">
+                                    <true>
+                                        <log text="[AndroidXROpenXR UPL] intent-filter element found"/>
+                                        
+                                        <addElements tag="$">
+                                            <category android:name="android.intent.category.INFO" />
+                                            <category android:name="android.intent.category.XR" />
+                                        </addElements>
+                                        
+                                        <break/>
+                                    </true>
+                                </if>
+                            </loopElements>
+                            
+                            <if condition="bIntentFilterFound">
+                                <true>
+                                    <break/>
+                                </true>
+                                <false>
+                                    <log text="[AndroidXROpenXR UPL] intent-filter element missing. Adding..."/>
+                                    <addElements tag="$">
+                                        <intent-filter>
+                                            <action android:name="android.intent.action.MAIN" />
+                                            <category android:name="android.intent.category.INFO" />
+                                            <category android:name="android.intent.category.XR" />
+                                        </intent-filter>
+                                    </addElements>
+                                </false>
+                            </if>
+                        </true>
+                    </if>
+                </loopElements>
+                
+                <if condition="bHandTrackingEnabled">
+                    <true>
+                        <log text="Hand Tracking Enabled - Adding 'android.permisison.HAND_TRACKING."/>
+                        <addPermission android:name="android.permisison.HAND_TRACKING" android:required="true"/>
+                    </true>
+                </if>
+                
+                <if condition="bEyeTrackingEnabled">
+                    <true>
+                        <log text="Eye Tracking Enabled - Adding 'android.permisison.EYE_TRACKING."/>
+                        <addPermission android:name="android.permisison.EYE_TRACKING" android:required="true"/>
+                    </true>
+                </if>
+                
+                <if condition="bEyeTrackingFineEnabled">
+                    <true>
+                        <log text="Eye Tracking Fine Enabled - Adding 'android.permisison.EYE_TRACKING_FINE."/>
+                        <addPermission android:name="android.permisison.EYE_TRACKING_FINE" android:required="true"/>
+                    </true>
+                </if>
+                
+                <if condition="bFaceTrackingEnabled">
+                    <true>
+                        <log text="Face Tracking Enabled - Adding 'android.permisison.FACE_TRACKING."/>
+                        <addPermission android:name="android.permisison.FACE_TRACKING" android:required="true"/>
+                    </true>
+                </if>
+            </true>
+        </if>
+    </androidManifestUpdates>
+
+    <resourceCopies>
+        <if condition="bCpuArchSupported">
+            <true>
+                <log text="Copying libandroidxr_openxr_loader.so" />
+                <copyFile src="$S(PluginDir)/Libs/Android/arm64-v8a/libandroidxr_openxr_loader.so"
+                          dst="$S(BuildDir)/libs/arm64-v8a/libandroidxr_openxr_loader.so" />
+            </true>
+        </if>
+    </resourceCopies>
+</root>

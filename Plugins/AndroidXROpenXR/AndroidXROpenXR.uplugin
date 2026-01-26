@@ -1,0 +1,30 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.0.1",
+	"FriendlyName": "Android XR OpenXR",
+	"Description": "OpenXR support for Android XR",
+	"Category": "Virtual Reality",
+	"CreatedBy": "Owlchemy Labs Inc w/ Support by Agile Lens LLC",
+	"CreatedByURL": "https://owlchemylabs.com",
+	"DocsURL": "",
+	"MarketplaceURL": "https://agilelens.com",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "AndroidXROpenXRLoader",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "OpenXR",
+			"Enabled": true
+		}
+	]
+}
