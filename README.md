@@ -8,6 +8,7 @@ A streamlined Unreal Engine project based on the official VR Template, pre-confi
 
 ## 📺 Video Overview
 [![Android XR for Unreal Intro](https://img.youtube.com/vi/vNpNcAKw12o/0.jpg)](https://www.youtube.com/watch?v=vNpNcAKw12o)
+
 *Click the image above to watch the full walkthrough on YouTube.*
 
 ---
