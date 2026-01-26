@@ -1,6 +1,6 @@
 # UE5 AndroidXR Template
 
-![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.4+-blue?logo=unrealengine)
+![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.7+-blue?logo=unrealengine)
 ![Platform](https://img.shields.io/badge/Platform-Android%20XR-green)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
