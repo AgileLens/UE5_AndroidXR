@@ -25,7 +25,7 @@ Ensure you have the following installed:
 2. **Android Studio** (Flamingo or Ladybug)
 3. **Android SDK Platform 34/35**
 4. **Java JDK 17**
-5. **Note: Check out this incredibly helpful repo for Android work for UE5** ![NuLL3rr0r Unreal Android Installer]([https://img.shields.io/badge/License-MIT-lightgrey](https://github.com/NuLL3rr0r/unreal-android-installer))
+5. **Note: Check out this incredibly helpful repo for Android work for UE5** ![NuLL3rr0r Unreal Android Installer]((https://github.com/NuLL3rr0r/unreal-android-installer))
 
 ## 💻 Getting Started
 1. **Clone the Repo:**
