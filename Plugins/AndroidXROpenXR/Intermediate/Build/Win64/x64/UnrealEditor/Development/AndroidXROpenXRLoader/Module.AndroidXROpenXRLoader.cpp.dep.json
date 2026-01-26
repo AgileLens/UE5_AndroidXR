@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\ue\\unreal_57 androidxr\\androidxr\\plugins\\androidxropenxr\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\androidxropenxrloader\\module.androidxropenxrloader.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\ue\\unreal_57 androidxr\\androidxr\\intermediate\\build\\win64\\x64\\androidxreditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\ue\\unreal_57 androidxr\\androidxr\\plugins\\androidxropenxr\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\androidxropenxrloader\\definitions.androidxropenxrloader.h",
+            "f:\\ue\\unreal_57 androidxr\\androidxr\\plugins\\androidxropenxr\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\androidxropenxrloader\\permoduleinline.gen.cpp",
+            "f:\\epic games\\ue_5.7\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

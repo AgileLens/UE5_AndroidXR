@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-AndroidXROpenXRLoader.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:/UE/Unreal_57 AndroidXR/AndroidXR/Intermediate/Build/Win64/x64/AndroidXREditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/Module.AndroidXROpenXRLoader.cpp.obj"
+"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/AndroidXROpenXRLoader.cpp.obj"
+"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/Default.rc2.res"
+/OUT:"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/UnrealEditor-AndroidXROpenXRLoader.lib"

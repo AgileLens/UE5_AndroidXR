@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-AndroidXROpenXRLoader-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal\Intermediate\Build\Win64\x64\CafeUnrealEditor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.h.obj"
+"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\AndroidXROpenXRLoader\Module.AndroidXROpenXRLoader.cpp.obj"
+"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\AndroidXROpenXRLoader\AndroidXROpenXRLoader.cpp.obj"
+"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\AndroidXROpenXRLoader\Default.rc2.res"
+/OUT:"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\AndroidXROpenXRLoader\UnrealEditor-AndroidXROpenXRLoader-Win64-DebugGame.lib"

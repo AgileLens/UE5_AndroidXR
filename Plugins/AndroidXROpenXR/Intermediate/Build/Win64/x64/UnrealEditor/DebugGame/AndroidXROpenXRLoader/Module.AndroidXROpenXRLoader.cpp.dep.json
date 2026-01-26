@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\dev\\owlchemy\\cafedemoevals\\cafeunreal\\plugins\\androidxropenxr\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\androidxropenxrloader\\module.androidxropenxrloader.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\dev\\owlchemy\\cafedemoevals\\cafeunreal\\intermediate\\build\\win64\\x64\\cafeunrealeditor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\dev\\owlchemy\\cafedemoevals\\cafeunreal\\plugins\\androidxropenxr\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\androidxropenxrloader\\definitions.androidxropenxrloader.h",
+            "c:\\dev\\owlchemy\\cafedemoevals\\cafeunreal\\plugins\\androidxropenxr\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\androidxropenxrloader\\permoduleinline.gen.cpp",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

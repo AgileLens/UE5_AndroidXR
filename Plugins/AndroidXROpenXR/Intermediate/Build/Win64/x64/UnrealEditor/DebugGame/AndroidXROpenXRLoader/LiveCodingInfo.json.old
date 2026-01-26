@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.AndroidXROpenXRLoader.cpp.obj": [
+			"PerModuleInline.gen.cpp.obj",
+			"AndroidXROpenXRLoader.cpp.obj",
+			"AndroidXRPermissionsPreloadScreen.cpp.obj"
+		]
+	}
+}
