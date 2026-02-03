@@ -1,6 +1,6 @@
 # UE5 AndroidXR Template
 
-![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.7+-blue?logo=unrealengine)
+![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.5.4-blue?logo=unrealengine)
 ![Platform](https://img.shields.io/badge/Platform-Android%20XR-green)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -21,13 +21,19 @@ A streamlined Unreal Engine project based on the official VR Template, pre-confi
 
 ## 🛠 Prerequisites
 Ensure you have the following installed:
-1. **Unreal Engine 5.7.2**
-2. **Android Studio** (Flamingo or Ladybug)
-3. **Android SDK Platform 34/35**
-4. **Java JDK 17**
-5. **Note: Check out this incredibly helpful repo for Android work for UE5** [NuLL3rr0r Unreal Android Installer](https://github.com/NuLL3rr0r/unreal-android-installer)* 
+1. **Unreal Engine 5.5.4** (5.7 was working in October 2025 but is now broken... can be explored in **dev_57** branch)
+2. **Android Studio:** Flamingo or Ladybug
 
-*To run the Powershell script you can use:
+## 🛠 Unreal Engine Android SDK Settings
+3. **Accept SDK License**
+4. **Minimum and Target SDK Version:** both set to 32
+5. **Location of Android NDK:** Path to ndk 25.1.8937393
+6. **Android SDK API Level:** android-34
+7. **Android NDK API Level:** android-32
+8. **Java JDK 17**
+9. **Note: Check out this incredibly helpful repo for setting up Android for UE5** [NuLL3rr0r Unreal Android Installer](https://github.com/NuLL3rr0r/unreal-android-installer/tree/5.4)* 
+
+*To run the Powershell (.ps1) script you can use:
 ```bash
    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
@@ -38,7 +44,7 @@ Ensure you have the following installed:
 
 2.  Open: Launch the project in Unreal Engine.
 3.  Package:
-- Navigate to Platforms > Android > Android_OpenXR.
+- Navigate to Platforms > Android > Android_ASTC.
 - Select Package Project.
 - Deploy the APK to your Galaxy XR or compatible Android XR device.
 
