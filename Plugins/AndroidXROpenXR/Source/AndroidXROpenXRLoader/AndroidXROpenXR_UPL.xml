@@ -77,29 +77,29 @@
                 
                 <if condition="bHandTrackingEnabled">
                     <true>
-                        <log text="Hand Tracking Enabled - Adding 'android.permisison.HAND_TRACKING."/>
-                        <addPermission android:name="android.permisison.HAND_TRACKING" android:required="true"/>
+                        <log text="Hand Tracking Enabled - Adding 'android.permission.HAND_TRACKING."/>
+                        <addPermission android:name="android.permission.HAND_TRACKING" android:required="true"/>
                     </true>
                 </if>
                 
                 <if condition="bEyeTrackingEnabled">
                     <true>
-                        <log text="Eye Tracking Enabled - Adding 'android.permisison.EYE_TRACKING."/>
-                        <addPermission android:name="android.permisison.EYE_TRACKING" android:required="true"/>
+                        <log text="Eye Tracking Enabled - Adding 'android.permission.EYE_TRACKING."/>
+                        <addPermission android:name="android.permission.EYE_TRACKING" android:required="true"/>
                     </true>
                 </if>
                 
                 <if condition="bEyeTrackingFineEnabled">
                     <true>
-                        <log text="Eye Tracking Fine Enabled - Adding 'android.permisison.EYE_TRACKING_FINE."/>
-                        <addPermission android:name="android.permisison.EYE_TRACKING_FINE" android:required="true"/>
+                        <log text="Eye Tracking Fine Enabled - Adding 'android.permission.EYE_TRACKING_FINE."/>
+                        <addPermission android:name="android.permission.EYE_TRACKING_FINE" android:required="true"/>
                     </true>
                 </if>
                 
                 <if condition="bFaceTrackingEnabled">
                     <true>
-                        <log text="Face Tracking Enabled - Adding 'android.permisison.FACE_TRACKING."/>
-                        <addPermission android:name="android.permisison.FACE_TRACKING" android:required="true"/>
+                        <log text="Face Tracking Enabled - Adding 'android.permission.FACE_TRACKING."/>
+                        <addPermission android:name="android.permission.FACE_TRACKING" android:required="true"/>
                     </true>
                 </if>
             </true>
