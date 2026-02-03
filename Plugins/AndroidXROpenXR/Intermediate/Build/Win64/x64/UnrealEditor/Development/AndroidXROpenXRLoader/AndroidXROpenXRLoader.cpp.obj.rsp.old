@@ -1,17 +1,17 @@
-"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Source/AndroidXROpenXRLoader/Private/AndroidXROpenXRLoader.cpp"
-@"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/AndroidXROpenXRLoader.Shared.rsp"
-/FI"F:/UE/Unreal_57 AndroidXR/AndroidXR/Intermediate/Build/Win64/x64/AndroidXREditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h"
-/FI"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/Definitions.AndroidXROpenXRLoader.h"
-/Yu"F:/UE/Unreal_57 AndroidXR/AndroidXR/Intermediate/Build/Win64/x64/AndroidXREditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h"
-/Fp"F:/UE/Unreal_57 AndroidXR/AndroidXR/Intermediate/Build/Win64/x64/AndroidXREditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.pch"
-/Fo"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/AndroidXROpenXRLoader.cpp.obj"
-/experimental:log "F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/AndroidXROpenXRLoader.cpp.sarif"
-/sourceDependencies "F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/AndroidXROpenXRLoader.cpp.dep.json"
+"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Plugins\AndroidXROpenXR\Source\AndroidXROpenXRLoader\Private\AndroidXROpenXRLoader.cpp"
+/FI"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Intermediate\Build\Win64\x64\CafeUnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_3.h"
+/FI"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\Definitions.AndroidXROpenXRLoader.h"
+/Yu"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Intermediate\Build\Win64\x64\CafeUnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_3.h"
+/Fp"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Intermediate\Build\Win64\x64\CafeUnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_3.h.pch"
+/Fo"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\AndroidXROpenXRLoader.cpp.obj"
+/experimental:log "C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\AndroidXROpenXRLoader.cpp.sarif"
+/sourceDependencies "C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\AndroidXROpenXRLoader.cpp.dep.json"
+@"C:\Dev\Owlchemy\CafeDemoEvals\CafeUnreal_UE5.5\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\AndroidXROpenXRLoader.Shared.rsp"
+/d2ssa-cfg-question-
 /Zc:inline
 /nologo
 /Oi
 /FC
-/diagnostics:caret
 /c
 /Gw
 /Gy
@@ -39,17 +39,15 @@
 /fp:fast
 /Zo
 /Zp8
-/W4
 /we4456
 /we4458
 /we4459
+/we4668
 /wd4244
 /wd4838
-/we4668
-/wd4267
-/wd4100
 /TP
 /GR-
+/W4
 /std:c++20
 /Zc:preprocessor
 /wd5054

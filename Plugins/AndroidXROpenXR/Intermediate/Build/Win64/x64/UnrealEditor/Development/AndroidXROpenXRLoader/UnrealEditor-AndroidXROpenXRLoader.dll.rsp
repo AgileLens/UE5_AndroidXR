@@ -1,4 +1,5 @@
-/MANIFEST:NO
+/MANIFEST:EMBED
+/MANIFESTINPUT:"..\Build\Windows\Resources\Default-Win64.manifest"
 /NOLOGO
 /DEBUG:FULL
 /errorReport:prompt
@@ -21,9 +22,9 @@
 /DELAYLOAD:"openxr_loader.dll"
 /DELAYLOAD:"d3d12.dll"
 /DELAYLOAD:"DBGHELP.DLL"
-/LIBPATH:"D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/lib/x64"
-/LIBPATH:"C:/Program Files (x86)/Windows Kits/10/lib/10.0.22621.0/ucrt/x64"
-/LIBPATH:"C:/Program Files (x86)/Windows Kits/10/lib/10.0.22621.0/um/x64"
+/LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.38.33130\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.20348.0\ucrt\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.20348.0\um\x64"
 /NODEFAULTLIB:"LIBCMT"
 /NODEFAULTLIB:"LIBCPMT"
 /NODEFAULTLIB:"LIBCMTD"
@@ -36,16 +37,15 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 /NOIMPLIB
-/NOEXP
-"F:/UE/Unreal_57 AndroidXR/AndroidXR/Intermediate/Build/Win64/x64/AndroidXREditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
-"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/Module.AndroidXROpenXRLoader.cpp.obj"
-"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/AndroidXROpenXRLoader.cpp.obj"
-"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/AndroidXROpenXRLoader/Default.rc2.res"
-"ThirdParty/OpenXR/loader/win64/openxr_loader.lib"
-"../Intermediate/Build/Win64/x64/UnrealEditor/Development/Core/UnrealEditor-Core.lib"
-"../Intermediate/Build/Win64/x64/UnrealEditor/Development/Engine/UnrealEditor-Engine.lib"
-"../Plugins/Runtime/OpenXR/Intermediate/Build/Win64/x64/UnrealEditor/Development/OpenXRHMD/UnrealEditor-OpenXRHMD.lib"
-"../Intermediate/Build/Win64/x64/UnrealEditor/Development/Projects/UnrealEditor-Projects.lib"
+"C:\Dev\Unreal\VRTemplate_554\Intermediate\Build\Win64\x64\VRTemplate_554Editor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_3.h.obj"
+"C:\Dev\Unreal\VRTemplate_554\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\Module.AndroidXROpenXRLoader.cpp.obj"
+"C:\Dev\Unreal\VRTemplate_554\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\AndroidXROpenXRLoader.cpp.obj"
+"C:\Dev\Unreal\VRTemplate_554\Plugins\AndroidXROpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\AndroidXROpenXRLoader\Default.rc2.res"
+"ThirdParty\OpenXR\loader\win64\openxr_loader.lib"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
+"..\Plugins\Runtime\OpenXR\Intermediate\Build\Win64\x64\UnrealEditor\Development\OpenXRHMD\UnrealEditor-OpenXRHMD.lib"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Projects\UnrealEditor-Projects.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"
@@ -71,6 +71,6 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Binaries/Win64/UnrealEditor-AndroidXROpenXRLoader.dll"
-/PDB:"F:/UE/Unreal_57 AndroidXR/AndroidXR/Plugins/AndroidXROpenXR/Binaries/Win64/UnrealEditor-AndroidXROpenXRLoader.pdb"
+/OUT:"C:\Dev\Unreal\VRTemplate_554\Plugins\AndroidXROpenXR\Binaries\Win64\UnrealEditor-AndroidXROpenXRLoader.dll"
+/PDB:"C:\Dev\Unreal\VRTemplate_554\Plugins\AndroidXROpenXR\Binaries\Win64\UnrealEditor-AndroidXROpenXRLoader.pdb"
 /ignore:4078
