@@ -48,6 +48,14 @@ Ensure you have the following installed:
 - Select Package Project.
 - Deploy the APK to your Galaxy XR or compatible Android XR device.
 
+## Things to Try
+
+1. **Open the project in UE 5.5.4 and hit Play in the Editor** — the VR Template scene loads in the viewport; verify the AndroidXR plugin is listed as active under Edit → Plugins → Installed → AndroidXR.
+2. **Navigate to Platforms → Android → Android_ASTC and click Package Project** — UE generates an APK; sideload it to a Galaxy XR device with `adb install` and confirm it launches.
+3. **Enable passthrough on the device** — the mixed reality environment should show your real room behind the UE scene; check OpenXR project settings under Project Settings → Platforms → Android if it doesn't appear.
+4. **Check out the `dev_57` branch and open in UE 5.7** — verify whether the plugin issues are resolved on your setup; the branch is exploratory but useful for tracking 5.7 compatibility status.
+5. **Swap the VR Template pawn for your own character Blueprint** — the project's optimized Android manifest and SDK settings carry over; package and deploy to confirm the custom pawn works on-device without re-configuring SDK paths.
+
 ## 🤝 Credits & Lineage
 Owlchemy Labs: For the foundational development of the AndroidXR plugin.
 
