@@ -36,8 +36,12 @@ Ensure you have the following installed:
    ```bash
    git clone [https://github.com/AgileLens/UE5_AndroidXR.git](https://github.com/AgileLens/UE5_AndroidXR.git)
 
-2.  Open: Launch the project in Unreal Engine.
-3.  Package:
+2.  **Fetch the OpenXR loader:** `python Scripts/fetch_openxr_loader.py` — the AndroidXROpenXR
+    plugin's `libandroidxr_openxr_loader.so` is gitignored (blanket `*.so` rule) and must be
+    fetched once per clone. Skipping this step packages fine until the final staging step, where
+    it fails with `Failed to copy .../libandroidxr_openxr_loader.so ... because it doesn't exist.`
+3.  Open: Launch the project in Unreal Engine.
+4.  Package:
 - Navigate to Platforms > Android > Android_OpenXR.
 - Select Package Project.
 - Deploy the APK to your Galaxy XR or compatible Android XR device.
