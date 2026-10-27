@@ -1,0 +1,9 @@
+# Unreal plugin build artifacts
+Binaries/
+Intermediate/
+DerivedDataCache/
+*.pdb
+
+# OS
+.DS_Store
+Thumbs.db

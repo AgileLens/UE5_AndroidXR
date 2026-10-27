@@ -1,0 +1,114 @@
+From 4f59b2fea5c6d5bd16d1660ee64179cebdc559d4 Mon Sep 17 00:00:00 2001
+From: Alex Coulombe <ibrews@users.noreply.github.com>
+Date: Tue, 2 Jun 2026 22:30:04 -0400
+Subject: [PATCH] fix(lightmass): build native arm64 UnrealLightmass on Apple
+ Silicon
+
+UnrealLightmass shipped as x86_64 and ran under Rosetta on Apple Silicon, where
+Embree's x86_64 slice fails rtcNewDevice (Rosetta 2 emulates no AVX). The
+rtcGetDeviceError assert (LightmassScene.cpp) made static-lighting bakes fail
+silently on M-series Macs. Epic never ported Lightmass to arm64 -- stock UE 5.6
+and ue5-main have the identical x86-only LMMath.h -- so this is a new port, not a
+regression.
+
+Three arch-guarded changes (PLATFORM_CPU_ARM_FAMILY); x86_64 codegen unchanged:
+- LMMath.h: route the hand-written SSE2 SIMD (LMMathSSE.h vector math + SFMT.cpp
+  RNG) through the sse2neon shim Embree already vendors, instead of <emmintrin.h>.
+- UnrealLightmass.Build.cs: add Embree's sse2neon include dir on the Mac/Linux path.
+- LMStats.h: read the arm64 virtual counter (CNTVCT_EL0) instead of x86 __rdtsc
+  for the profiling timers.
+
+A native arm64 UnrealLightmass then loads Embree's arm64 (NEON) slice and bakes
+correctly. Verified on M1 Max: `file` reports arm64, Embree initializes with no
+rtcGetDeviceError, and a MEDIUM bake of the visionOS sample produces real lightmap
+data (BuiltData 3.1MB -> 8.2MB).
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+---
+ .../Private/LightmassCore/Math/LMMath.h        | 14 +++++++++++++-
+ .../Private/LightmassCore/Misc/LMStats.h       | 18 ++++++++++++++++--
+ .../UnrealLightmass/UnrealLightmass.Build.cs   |  7 +++++++
+ 3 files changed, 36 insertions(+), 3 deletions(-)
+
+diff --git a/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Math/LMMath.h b/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Math/LMMath.h
+index 404eaccf14ab..f1a949c5ed8a 100644
+--- a/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Math/LMMath.h
++++ b/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Math/LMMath.h
+@@ -6,7 +6,19 @@
+ 
+ #define USE_SSE2_FOR_MERSENNE_TWISTER 1
+ #if USE_SSE2_FOR_MERSENNE_TWISTER
+-	#include <emmintrin.h>
++	#if PLATFORM_CPU_ARM_FAMILY
++		// Apple Silicon / arm64: LMMathSSE.h and SFMT.cpp are hand-written against x86
++		// SSE2 intrinsics. Epic never ported them to NEON — stock UE 5.6 and ue5-main
++		// still #include <emmintrin.h> here and ship an x86_64 UnrealLightmass that runs
++		// under Rosetta, where Embree's x86_64 slice fails rtcNewDevice (Rosetta has no
++		// AVX), breaking bakes on Apple Silicon. A native arm64 UnrealLightmass instead
++		// loads Embree's arm64 (NEON) slice. The sse2neon shim Embree already vendors maps
++		// these SSE2 intrinsics to NEON so the SIMD code compiles unchanged for arm64.
++		// Include path added in UnrealLightmass.Build.cs.
++		#include "sse2neon.h"
++	#else
++		#include <emmintrin.h>
++	#endif
+ #endif
+ 
+ namespace Lightmass
+diff --git a/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Misc/LMStats.h b/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Misc/LMStats.h
+index 90764afcef2e..8485df094d07 100644
+--- a/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Misc/LMStats.h
++++ b/Engine/Source/Programs/UnrealLightmass/Private/LightmassCore/Misc/LMStats.h
+@@ -7,7 +7,21 @@
+ // basic stuff needed by everybody
+ #pragma warning( disable: 4799 )		// function '...' has no EMMS instruction)
+ 
+-#if (PLATFORM_MAC && __clang_major__ < 9) || PLATFORM_LINUX
++#if PLATFORM_CPU_ARM_FAMILY
++#if !__has_builtin(__rdtsc)
++// arm64 has no x86 RDTSC. Read the userspace-accessible virtual count register
++// (CNTVCT_EL0), a monotonic fixed-frequency timer. Lightmass uses these values only
++// for relative cycle deltas and divides them by a frequency measured with the same
++// counter (see GInitCPUFrequency in LMCore.cpp), so a non-CPU-cycle monotonic source
++// stays self-consistent. Lets a native arm64 UnrealLightmass build on Apple Silicon.
++inline unsigned long long __rdtsc()
++{
++	unsigned long long Value;
++	__asm__ __volatile__ ("mrs %0, cntvct_el0" : "=r" (Value));
++	return Value;
++}
++#endif //!__has_builtin(__rdtsc)
++#elif (PLATFORM_MAC && __clang_major__ < 9) || PLATFORM_LINUX
+ #if !__has_builtin(__rdtsc)
+ inline unsigned long long __rdtsc()
+ {
+@@ -16,7 +30,7 @@ inline unsigned long long __rdtsc()
+ 	return (High << 32) | Low;
+ }
+ #endif //!__has_builtin(__rdtsc))
+-#endif //(PLATFORM_MAC || PLATFORM_LINUX)
++#endif //PLATFORM_CPU_ARM_FAMILY / (PLATFORM_MAC || PLATFORM_LINUX)
+ 
+ namespace Lightmass
+ {
+diff --git a/Engine/Source/Programs/UnrealLightmass/UnrealLightmass.Build.cs b/Engine/Source/Programs/UnrealLightmass/UnrealLightmass.Build.cs
+index de4a160c606c..0c91e1a045be 100644
+--- a/Engine/Source/Programs/UnrealLightmass/UnrealLightmass.Build.cs
++++ b/Engine/Source/Programs/UnrealLightmass/UnrealLightmass.Build.cs
+@@ -47,6 +47,13 @@ public class UnrealLightmass : ModuleRules
+ 					"Messaging",
+ 				}
+ 			);
++
++			// Apple Silicon / arm64 Lightmass: LMMathSSE.h and SFMT.cpp use x86 SSE2
++			// intrinsics that Epic never ported to NEON. Expose the sse2neon shim that
++			// Embree already vendors so LMMath.h can translate them to NEON and build a
++			// native arm64 UnrealLightmass. Only #included under PLATFORM_CPU_ARM_FAMILY,
++			// so this is inert for x86_64 builds.
++			PrivateIncludePaths.Add("ThirdParty/Intel/Embree/embree-4.3.3/common/simd/arm");
+ 		}
+ 		else
+ 		{
+-- 
+2.50.1 (Apple Git-155)
+

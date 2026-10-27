@@ -1,0 +1,43 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "2.0",
+	"FriendlyName": "Pinchwork",
+	"Description": "OpenXR hand-tracking and gesture system: per-finger pinches, curl-pattern gesture recognition with per-user calibration, pinch-to-grab with throw velocity, gesture-to-Enhanced Input injection, two-hand transforms (scale/rotate/translate), and gesture macros — on an engine-agnostic, unit-tested core. Built for Apple Vision Pro and any OpenXR hand-tracking runtime.",
+	"Category": "Input",
+	"CreatedBy": "Alex Coulombe",
+	"CreatedByURL": "https://github.com/ibrews/Pinchwork",
+	"DocsURL": "https://github.com/ibrews/Pinchwork#readme",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/ibrews/Pinchwork/issues",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "PinchworkCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Pinchwork",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "XRBase",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenXRHandTracking",
+			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		}
+	]
+}
